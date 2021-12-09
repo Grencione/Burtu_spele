@@ -1,0 +1,100 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <title>Burtu spēle</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link href="style.css" rel="stylesheet" />
+    <style>
+        body {
+    background: url(fon.jpg); 
+    color: #fff; 
+   }
+        
+           
+    </style>
+</head>
+
+<body>
+    
+<div class="w3-container">
+   
+    <marquee behavior="alternate" direction="right" ><h2>Burtu spēle</h2></marquee>
+    
+    <p style="font-size:28px"> Vēlu veiksmi! </p>
+</div>
+
+<div class="w3-bar w3-black">
+  <button class="w3-bar-item w3-button" onclick="openCity('London')">Spēle</button>
+  <button class="w3-bar-item w3-button" onclick="openCity('Paris')">Spēles noteikumi</button>
+  <button class="w3-bar-item w3-button" onclick="openCity('Tokyo')">Autoru kontakti</button>
+</div>
+
+<div id="London" class="w3-container city">
+  <h2>Spēle</h2>
+  <p>London is the capital city of England.</p>
+<div id="demo">
+
+</div>  
+</div>
+
+<div id="Paris" class="w3-container city" style="display:none">
+  <h2>Spēles noteikumi</h2>
+  <p>Paris is the capital of France.</p> 
+</div>
+
+<div id="Tokyo" class="w3-container city" style="display:none">
+  <h2>Autoru kontakti</h2>
+  <p>Tokyo is the capital of Japan.</p>
+</div>
+
+<script>
+function openCity(cityName) {
+  var i;
+  var x = document.getElementsByClassName("city");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";  
+  }
+  document.getElementById(cityName).style.display = "block";  
+} 
+</script>
+<script>
+  function rand_b (vards){
+    for (let i=0; i<10; i++){
+      let rand2 = Math.floor(Math.random() * vards.length);
+      vards=vards.substring(rand2)+vards.substring(0,rand2)
+    }
+    return vards;
+
+  }
+  function poga (vards){
+    let laukums=document.createElement("div");
+    laukums.setAttribute("id","laukums");
+    for (let i=0; i<vards.length; i++){
+      console.log(i);
+      let poga=document.createElement("button");
+      poga.setAttribute("id","poga"+i);
+      poga.innerHTML=vards.charAt(i);
+      laukums.appendChild(poga);
+    }
+    document.getElementById("demo").appendChild(laukums);
+
+    }
+   var alf = ["veikals", "skola", "dators", "integrācija", "krokodils"];
+  fLen = alf.length;
+  text = "<ul>";
+  //for (i = 0; i < fLen; i++) {
+      var rand1 = Math.floor(Math.random() * alf.length);
+      text += "<li>" + rand_b(alf[rand1]) + "</li>";
+  poga(rand_b(alf[rand1]));     
+  //}
+  text += "</ul>";
+  
+  //document.getElementById("demo").innerHTML = text;
+  
+  </script>
+  
+</body>
+</html><!DOCTYPE html>
