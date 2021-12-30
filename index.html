@@ -27,30 +27,64 @@
 </div>
 
 <div class="w3-bar w3-black">
-  <button class="w3-bar-item w3-button" onclick="openCity('London')">Spēle</button>
-  <button class="w3-bar-item w3-button" onclick="openCity('Paris')">Spēles noteikumi</button>
-  <button class="w3-bar-item w3-button" onclick="openCity('Tokyo')">Autoru kontakti</button>
+  <button class="w3-bar-item w3-button" onclick="openCity('Spele')">Spēle</button>
+  <button class="w3-bar-item w3-button" onclick="openCity('Noteikumi')">Spēles noteikumi</button>
+  <button class="w3-bar-item w3-button" onclick="openCity('Kontakti')">Autoru kontakti</button>
 </div>
 
-<div id="London" class="w3-container city">
+<div id="Spele" class="w3-container city">
   <h2>Spēle</h2>
-  <button onClick=poga(rand_b(alf[rand1]))>
-    Mainīt burtus
+  <div class="ievaddati">
+   
+    <br>
+    Izveles burtu skaitu: 
+    <select id="burtu_skaits">
+        <option value=5>5</option>
+        <option value=6>6</option>
+        <option value=7>7</option>
+        <option value=8>8</option>
+        <option value=9>9</option>
+    </select>
+  <br/>
+   
+    </div>
+    <br/>
+    <button onClick="mainit_burtus(burtu_skaits.value)")>
+   
+    Mainīt vārda burtus
   </button>
   <p>Saliec vārdu</p>
 <div id="demo">
 
 </div>  
+<br>
+Ieraksti vārdu: <input id="lietotaja_vards"/>
+<br>
+
+<script>
+  var punkti_kopa=o;
+    for (var i = 0; i < alf.length; i++) {
+        if (alf[i] === lietotaja_vards) {
+            punkti_kopa=punkti_kopa+5
+        }
+}
+
+Punktu skaits:
+</script>
+
 </div>
 
-<div id="Paris" class="w3-container city" style="display:none">
+
+
+<div id="Noteikumi" class="w3-container city" style="display:none">
   <h2>Spēles noteikumi</h2>
-  <p>Paris is the capital of France.</p> 
+  <p>Drīz šeit būs spēles noteikumi.</p> 
 </div>
 
-<div id="Tokyo" class="w3-container city" style="display:none">
+<div id="Kontakti" class="w3-container city" style="display:none">
   <h2>Autoru kontakti</h2>
-  <p>Tokyo is the capital of Japan.</p>
+  <p>Tatjana Grencione</p>
+  <p>Jelgavas 5.vidusskola</p>
 </div>
 
 <script>
@@ -85,15 +119,22 @@ function openCity(cityName) {
     document.getElementById("demo").appendChild(laukums);
 
     }
-   var alf = ["veikals", "skola", "dators", "integrācija", "krokodils"];
-  fLen = alf.length;
+var alf = ["veikals", "skola", "dators", "integrācija", "krokodils"];
+var alf6 = ["dators", "masīvs", "domēns", "gaisma","parole"];
+var alf7 = ["grāmata", "laukums", "zīmulis", "salvete", "cilvēks"];
+var alf8 = ["datorika", "monitors","funkcija", "saraksts", "gredzens"];
+var alf9 =["internets", "procesors", "procedūra", "mikrofons", "programma"];
+   fLen = alf.length;
   text = "<ul>";
   //for (i = 0; i < fLen; i++) {
       var rand1 = Math.floor(Math.random() * alf.length);
       text += "<li>" + rand_b(alf[rand1]) + "</li>";
-  poga(rand_b(alf[rand1]));     
+  poga(rand_b(alf[rand1])); 
+  
   //}
   text += "</ul>";
+  alf.indexOf(rand_b)
+ 
   //sveika
   //document.getElementById("demo").innerHTML = text;
   
