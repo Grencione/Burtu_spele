@@ -9,7 +9,7 @@
     <link href="style.css" rel="stylesheet" />
     <style>
         body {
-    background: url(fon.jpg); 
+    background: url(fon1.jpg); 
     color: #fff; 
    }
         
@@ -29,11 +29,17 @@
 <div class="w3-bar w3-black">
   <button class="w3-bar-item w3-button" onclick="openCity('Spele')">Spēle</button>
   <button class="w3-bar-item w3-button" onclick="openCity('Noteikumi')">Spēles noteikumi</button>
+  <button class="w3-bar-item w3-button" onclick="openCity('Top')">Spēlētāju TOP</button>
   <button class="w3-bar-item w3-button" onclick="openCity('Kontakti')">Autoru kontakti</button>
 </div>
 
 <div id="Spele" class="w3-container city">
   <h2>Spēle</h2>
+  <p>Ievadi savu vārdu: </p>
+  <form>
+    <input id="speletajs">
+    <label for="speletajs"></label>
+  </form>
   <div class="ievaddati">
    
     <br>
@@ -53,7 +59,7 @@
    
     Mainīt vārda burtus
   </button>
-  <p>Saliec vārdu</p>
+  <p>Saliec vārdu no burtiem:</p>
 <div id="demo">
 
 </div>  
@@ -73,14 +79,14 @@ Ieraksti vārdu: <input id="lietotaja_vards"/>
 </script>
 
 </div>
-
-
-
 <div id="Noteikumi" class="w3-container city" style="display:none">
   <h2>Spēles noteikumi</h2>
   <p>Drīz šeit būs spēles noteikumi.</p> 
 </div>
-
+<div id="Top" class="w3-container city" style="display:none">
+  <h2>Spēlētāju TOP</h2>
+  <p>Spēlētāju statistika:</p> 
+</div>
 <div id="Kontakti" class="w3-container city" style="display:none">
   <h2>Autoru kontakti</h2>
   <p>Tatjana Grencione</p>
@@ -126,12 +132,12 @@ function openCity(cityName) {
     function sakt(){
       n=document.getElementById("burtu_skaits").value;
       
-      var rand1 = Math.floor(Math.random() * 2+(n-5)*2);
+      var rand1 = Math.floor(Math.random() * 3+(n-5)*3);
       console.log (rand1);
       poga(rand_b(alf[rand1])); 
     }
 
-var alf = ["skola", "burts", "pasaka", "dators","veikals", "sakrans"];
+var alf = ["skola", "burts", "klase", "pasaka", "karogs", "dators","veikals", "sakrans", "valdība","šokolade","ķermenis", "alfabēts", "graudaugs", "rezidents", "pilsonība"];
 
    fLen = alf.length;
   text = "<ul>";
