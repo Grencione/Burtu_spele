@@ -49,7 +49,7 @@
    
     </div>
     <br/>
-    <button onClick="mainit_burtus(burtu_skaits.value)")>
+    <button onClick="sakt()">
    
     Mainīt vārda burtus
   </button>
@@ -62,14 +62,14 @@ Ieraksti vārdu: <input id="lietotaja_vards"/>
 <br>
 
 <script>
-  var punkti_kopa=o;
-    for (var i = 0; i < alf.length; i++) {
-        if (alf[i] === lietotaja_vards) {
-            punkti_kopa=punkti_kopa+5
-        }
-}
+  //var punkti_kopa=0;
+    //for (var i = 0; i < alf.length; i++) {
+        //if (alf[i] === lietotaja_vards) {
+            //punkti_kopa=punkti_kopa+5
+        //}
+//}
 
-Punktu skaits:
+
 </script>
 
 </div>
@@ -107,6 +107,9 @@ function openCity(cityName) {
 
   }
   function poga (vards){
+    if (document.getElementById("laukums")!=null)
+    document.getElementById("laukums").remove();
+
     let laukums=document.createElement("div");
     laukums.setAttribute("id","laukums");
     for (let i=0; i<vards.length; i++){
@@ -119,11 +122,17 @@ function openCity(cityName) {
     document.getElementById("demo").appendChild(laukums);
 
     }
-var alf = ["veikals", "skola", "dators", "integrācija", "krokodils"];
-var alf6 = ["dators", "masīvs", "domēns", "gaisma","parole"];
-var alf7 = ["grāmata", "laukums", "zīmulis", "salvete", "cilvēks"];
-var alf8 = ["datorika", "monitors","funkcija", "saraksts", "gredzens"];
-var alf9 =["internets", "procesors", "procedūra", "mikrofons", "programma"];
+    var n;
+    function sakt(){
+      n=document.getElementById("burtu_skaits").value;
+      
+      var rand1 = Math.floor(Math.random() * 2+(n-5)*2);
+      console.log (rand1);
+      poga(rand_b(alf[rand1])); 
+    }
+
+var alf = ["skola", "burts", "pasaka", "dators","veikals", "sakrans"];
+
    fLen = alf.length;
   text = "<ul>";
   //for (i = 0; i < fLen; i++) {
